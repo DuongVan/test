@@ -1,0 +1,25 @@
+<% # Display all flash messages with PNotify JS plugin %>
+<script type="text/javascript">
+  <% flash.each do |type, message| %>
+    <%
+      css_class = {
+        'alert'   => 'error',
+        'error'   => 'error',
+        'notice'  => 'success',
+        'success' => 'success',
+        'warning' => 'warning'
+      }[type]
+    %>
+    new PNotify({
+      text: '<%= message %>',
+      type: '<%= css_class %>',
+      width: '350px',
+      addclass: 'translucent stack-bottomright',
+      stack: {dir1: 'up', dir2: 'left', firstpos1: 25, firstpos2: 25},
+      buttons: {
+        sticker: false
+      },
+      delay: 5000
+    });
+  <% end %>
+</script>

@@ -1,0 +1,12 @@
+.nested-fields
+  .col-md-12
+    .col-md-6
+      = f.input :service_id, label: "Loại dịch vụ", collection: Service.pluck(:ten, :id), input_html: { class: 'dv' }
+    .col-md-2
+      = f.input :so_luong, label: 'Số lượng', as: :integer
+    .col-md-4
+      = f.input :dv, label: 'Dịch vụ', as: :boolean, input_html: { class: 'type-dv ' }
+      = f.input :bh, label: 'Bảo hiểm', as: :boolean, input_html: { class: 'type-bh' }
+      = f.input :don_gia, label: 'Đơn giá', as: :decimal
+      = f.input :thanh_tien, label: 'Thành tiền' , as: :decimal, input_html: { class: 'money' }
+  = link_to_remove_association "xóa dich vụ", f

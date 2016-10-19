@@ -1,0 +1,38 @@
+aside.main-sidebar
+  section.sidebar
+    ul.sidebar-menu
+      li.header Management
+      li
+        a href="#"
+          i.fa.fa-home
+          span Dashboard
+      li.treeview.active
+        a href="#"
+          i.fa.fa-list
+          span Hóa Đơn
+          i.fa.fa-angle-left.pull-right
+        ul.treeview-menu.menu-open
+          li
+            a href=new_invoice_path
+              i.fa.fa-circle-o
+              | Tạo Hóa Đơn
+          li
+            a href=invoices_path
+              i.fa.fa-circle-o
+              | Hóa Đơn
+      li.treeview.active
+        a href="#"
+          i.fa.fa-list
+          span Dịch Vụ
+          i.fa.fa-angle-left.pull-right
+        ul.treeview-menu.menu-open
+          li
+            a href=new_service_path
+              i.fa.fa-circle-o
+              | Tạo Dịch Vụ
+          li
+            a href=services_path
+              i.fa.fa-circle-o
+              | Dịch Vụ
+
+

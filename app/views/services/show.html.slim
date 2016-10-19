@@ -1,0 +1,42 @@
+section.content-header
+  h1
+    | Dịch vụ
+section.content
+  .row
+    .col-md-12
+      .box
+        .box-body
+          table.table.table-bordered
+            tr
+              td
+                b ID
+              td
+                = @service.id
+            tr
+              td
+                b STT
+              td
+                = @service.stt
+            tr
+              td
+                Mã DKKD
+              td
+                = @service.ma_dkdv
+            tr
+              td
+                b Name
+              td
+                = @service.ten
+            tr
+              td
+                b Giá bảo hiểm
+              td
+                = @service.gia_bh
+            tr
+              td
+                b Giá dịch vụ
+              td
+                = @service.gia_dv
+        .box-footer
+          = link_to "Cập nhật", service_path(@service), class: "btn btn-primary"
+          a.btn.btn-default.ml5 href=services_path Quay lại danh sách

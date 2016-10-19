@@ -1,0 +1,70 @@
+section.content-header
+  h1
+    | Hóa Đơn
+section.content
+  .row
+    .col-md-12
+      .box
+        .box-body
+          table.table.table-bordered
+            tr
+              td
+                b ID
+              td
+                = @invoice.id
+            tr
+              td
+                b Tên
+              td
+                = @invoice.ten
+            tr
+              td
+                b Địa chỉ
+              td
+                = @invoice.dia_chi
+            tr
+              td
+                b Tuổi
+              td
+                = @invoice.tuoi
+            tr
+              td
+                b Tổng tiền
+              td
+                = @invoice.tong_tien
+            tr
+              td
+                b Tổng tiền chữ
+              td
+                = @invoice.tong_tien_chu
+            tr
+              td
+                b Thu Ngân
+              td
+                = @invoice.thu_ngan
+            tr
+              td
+                b Ngày
+              td
+              = @invoice.created_at
+          h4 Dịch vụ
+          table.table.table-bordered
+            th Tên
+            th Số lượng
+            th Đơn giá
+            th Thành tiền
+            - @invoice.invoice_details.each do |invoice_service|
+              tr
+                td
+                  = invoice_service.service.ten
+                td
+                  = invoice_service.so_luong
+                td
+                  = invoice_service.don_gia
+                td
+                  = invoice_service.thanh_tien
+
+          a.btn.btn-primary.ml5 href=invoices_path Quay lại danh sách
+          a.btn.btn-primary href= print_invoice_path(@invoice) target="_blank"
+              i.fa.fa-print.mr5
+              | Print

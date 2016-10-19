@@ -53,4 +53,13 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :invoices do
+    member do
+      get :print
+
+    end
+  end
+  resources :services
+
+  get '/api' => 'application#index', defaults: { format: :json }
 end

@@ -1,0 +1,32 @@
+section.content-header
+  h1
+    | Hoa Don
+section.content
+  .box.box-default
+    .box-body
+      .row.mb5
+        .col-md-12.text-right
+          a.btn.btn-primary href=new_invoice_path Tạo mới
+      table.table.table-hover.table-bordered.table-vertical-center
+        thead
+          tr.bg-tr-header
+            th ID
+            th Tên
+            th Tổng tiền
+            th Thu Ngân
+            th Action
+        tbody.rowlink
+        -  @invoices.each do |invoice|
+            tr
+              td
+                a href=invoice_path(invoice)
+                  = invoice.id
+              td
+                = invoice.ten
+              td
+                = invoice.tong_tien
+              td
+                = invoice.thu_ngan
+              td
+                a.btn.btn-link href=invoice_path(invoice)
+                  | View

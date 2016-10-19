@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    link rel="shortcut icon" href="/favicon.ico"
+    title DV
+    = csrf_meta_tag
+    = stylesheet_link_tag 'application', media: 'all'
+    = csrf_meta_tags
+    body onload="window.print();"
+      = yield
+      = javascript_include_tag 'application'
+

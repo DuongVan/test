@@ -1,0 +1,30 @@
+section.content-header
+  h1
+    | Hóa Đơn
+section.content
+  .box.box-primary
+    .box-body
+      .col-md-12
+        = simple_form_for @invoice do |f|
+          .row
+            .col-md-6
+              = f.input :ten,  label: 'Tên'
+            .col-md-6
+              = f.input :gioi_tinh,  label: 'Giới tính'
+          .row
+            .col-md-6
+              = f.input :dia_chi,  label: 'Địa Chỉ'
+            .col-md-6
+              = f.input :tuoi,  label: 'Tuổi', as: :integer
+          h3 Dịch Vụ
+          #service
+            = f.simple_fields_for :invoice_details do |invoice|
+              = render 'invoice_detail_fields', f: invoice
+            .links
+              = link_to_add_association 'Thêm dịch vụ', f, :invoice_details
+          = f.input :tong_tien, label: 'Tổng tiền', input_html: { class: 'tong_tien' }
+          = f.input :tong_tien_chu, label: 'Tổng tiển chữ'
+          = f.input :thu_ngan, label: 'Thu Ngân'
+
+          = f.submit "Lưu",  class: "btn btn-primary pull-right"
+          input#services.hidden value=@services.to_json

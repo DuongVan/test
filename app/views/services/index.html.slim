@@ -1,0 +1,38 @@
+section.content-header
+  h1
+    | Dịch Vụ
+    small Subscription Plans
+section.content
+  .box.box-default
+    .box-body
+      .row.mb5
+        .col-md-12.text-right
+          a.btn.btn-primary href=new_service_path Tạo mới
+      table.table.table-hover.table-bordered.table-vertical-center
+        thead
+          tr.bg-tr-header
+            th ID
+            th STT
+            th Tên
+            th Giá bảo hiểm
+            th Giá dịch vụ
+            th Action
+        tbody.rowlink
+        -  @services.each do |service|
+            tr
+              td
+                a href=service_path(service)
+                  = service.id
+              td
+                = service.stt
+              td
+                = service.ten
+              td
+                = service.gia_bh
+              td
+                = service.gia_dv
+              td
+                a.btn.btn-link href=service_path(service)
+                  | View
+                a.btn.btn-link href=edit_service_path(service)
+                  | Edit

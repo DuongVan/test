@@ -1,0 +1,24 @@
+{
+  "name": "pkb",
+  "version": "1.0.0",
+  "lib": {
+    "name": "bower-rails generated lib assets",
+    "dependencies": {}
+  },
+  "vendor": {
+    "name": "bower-rails generated vendor assets",
+    "dependencies": {
+      "AdminLTE": "admin-lte#~2.3.3",
+      "font-awesome": "^4.6.3",
+      "jquery.nicescroll": "^3.6.8",
+      "Waves": "waves#^0.7.5",
+      "jquery": "~2.2.4",
+      "bootstrap": "~3.3.6"
+    }
+  },
+  "dependencies": {
+    "jquery-ui": "^1.12.1",
+    "ember-select-2": "select-2#*",
+    "select2": "^4.0.3"
+  }
+}

@@ -1,0 +1,69 @@
+.wrapper
+  /! Main content
+  section.invoice
+    .row.page-header
+      .col-sm-1
+        img src="/dhy.png"
+      .col-sm-8
+        .pull-left
+          p.text-muted.m-l-5.fz80
+            b TRUNG TÂM CHẨN ĐOÁN Y KHOA
+            br/
+            b TRƯỜNG ĐẠI HỌC Y DƯỢC ĐÀ NẴNG
+            br/
+            | Đ/c 99 Hùng Vương, Q.Hải Châu, TP Đằ Nẵng
+      .row
+        span.pull-right # #{@invoice.id}
+    .row.invoice-info.mt30
+        h4.center BIÊN LAI THU TIỀN
+    .row.mt20
+      .col-md-6
+        | Họ và tên
+        b.ml10 = @invoice.ten
+      .col-md-2
+        | Tuổi
+        b.ml10 = @invoice.tuoi
+      .col-md-2
+        | Giới tính
+        b.ml10 = @invoice.gioitinh
+    .row.mt20
+      .col-xs-6
+        |Địa chỉ
+        b.ml10 = @invoice.dia_chi
+      .col-xs-6
+        | Điện thoại
+    .row.mt20
+      .col-xs-12.table-responsive
+        table.table.table-bordered
+          thead
+            th STT
+            th Tên dịch vụ
+            th Số lượng
+            th Đơn Giá
+            th Thành tiền
+          tbody
+          - @invoice.invoice_details.each_with_index do |object, index|
+            tr
+              td
+                = index + 1
+              td
+                = object.service.ten
+              td
+                = object.so_luong
+              td
+                = object.don_gia
+              td
+                = object.thanh_tien
+    .row
+      p.ml20 Số tiền bệnh nhân phải trả : #{@invoice.tong_tien}
+    .row
+      p.ml20 Tiền bằng chữ :  #{@invoice.tong_tien_chu}
+    .row.mt40
+      .col-md-6
+        p.mt20 style="margin-left: 70px;" Người nộp tiền
+      .col-md-6.pull-right
+        p.italic-date Ngày #{@invoice.created_at.day} tháng #{@invoice.created_at.month} năm #{@invoice.created_at.year}
+        p.mt10.ml70 Người thu
+        p.mt40
+         b =@invoice.thu_ngan
+

@@ -1,0 +1,17 @@
+section.content-header
+  h1
+    | Dịch Vụ
+section.content
+  .box.box-primary
+    .box-body
+      .col-md-6
+        = simple_form_for @service do |f|
+          = f.input :stt,  label: 'STT'
+          = f.input :ma_dkdv,  label: 'MA DKDV'
+          = f.input :ten, label: 'Tên'
+          .row
+            .col-md-6
+              = f.input :gia_bh,  label: 'Giá bảo hiểm'
+            .col-md-6
+              = f.input :gia_dv,  label: 'Giá dịch vụ'
+          = f.submit "Lưu",  class: "btn btn-primary pull-right"
